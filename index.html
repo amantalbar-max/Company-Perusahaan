@@ -149,6 +149,22 @@
             background: var(--brand-red);
             border-radius: 10px;
         }
+        .img-responsive {
+    /* Menjaga gambar agar tidak lebih lebar dari kontainernya */
+    max-width: 100%;
+    
+    /* Menjaga proporsi tinggi gambar agar tidak gepeng */
+    height: auto;
+    
+    /* Membuat gambar rapi di tengah jika perlu */
+    display: block;
+    
+    /* Memberikan sudut tumpul agar terlihat modern (opsional) */
+    border-radius: 8px;
+    
+    /* Menjaga kualitas gambar tetap tajam */
+    object-fit: contain;
+}
     </style>
 </head>
 <body>
