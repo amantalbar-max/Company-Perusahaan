@@ -1,723 +1,389 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Archimedes | Engineering Consultant - Arsitektur, Konstruksi & IT</title>
-  <!-- Google Fonts & Smooth Scroll -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
-  <!-- Font Awesome 6 (free) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #ffffff;
-      color: #1a1e24;
-      line-height: 1.5;
-      scroll-behavior: smooth;
-    }
-
-    /* container */
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 32px;
-    }
-
-    /* warna merah utama dari logo (merah kuat, elegan) */
-    :root {
-      --primary-red: #C72A2F;    /* merah tegas profesional */
-      --primary-dark: #9e1e22;
-      --red-soft: #fce8e9;
-      --gray-dark: #1f2937;
-      --gray-mid: #4b5563;
-      --gray-light: #f9fafb;
-      --border-light: #e5e7eb;
-      --shadow-sm: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
-      --shadow-md: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.01);
-    }
-
-    /* typography */
-    h1, h2, h3 {
-      font-weight: 600;
-      letter-spacing: -0.02em;
-    }
-
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    .section-subhead {
-      color: var(--gray-mid);
-      max-width: 650px;
-      margin-bottom: 3rem;
-      font-size: 1.125rem;
-    }
-
-    /* buttons */
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background-color: var(--primary-red);
-      color: white;
-      font-weight: 600;
-      padding: 12px 28px;
-      border-radius: 40px;
-      text-decoration: none;
-      transition: all 0.25s ease;
-      border: none;
-      cursor: pointer;
-      font-size: 0.95rem;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-    }
-
-    .btn-primary:hover {
-      background-color: var(--primary-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px -5px rgba(199, 42, 47, 0.3);
-    }
-
-    .btn-outline {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: transparent;
-      border: 1.5px solid var(--primary-red);
-      color: var(--primary-red);
-      font-weight: 600;
-      padding: 10px 24px;
-      border-radius: 40px;
-      text-decoration: none;
-      transition: all 0.2s;
-    }
-
-    .btn-outline:hover {
-      background: var(--primary-red);
-      color: white;
-    }
-
-    /* header / navbar */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 0;
-      flex-wrap: wrap;
-    }
-
-    .logo-area {
-      display: flex;
-      align-items: baseline;
-      gap: 6px;
-      flex-wrap: wrap;
-    }
-
-    .logo-main {
-      font-size: 1.9rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      color: var(--primary-red);
-    }
-
-    .logo-sub {
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: var(--gray-mid);
-      letter-spacing: 1px;
-      border-left: 1px solid var(--border-light);
-      padding-left: 10px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 32px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      font-weight: 500;
-      color: #2c3e44;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover {
-      color: var(--primary-red);
-    }
-
-    /* hero */
-    .hero {
-      padding: 60px 0 80px 0;
-    }
-
-    .hero-grid {
-      display: flex;
-      align-items: center;
-      gap: 48px;
-      flex-wrap: wrap;
-      justify-content: space-between;
-    }
-
-    .hero-content {
-      flex: 1;
-      min-width: 280px;
-    }
-
-    .hero-badge {
-      background: var(--red-soft);
-      color: var(--primary-red);
-      padding: 6px 14px;
-      border-radius: 40px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      display: inline-block;
-      margin-bottom: 24px;
-    }
-
-    .hero-content h1 {
-      font-size: 3.2rem;
-      line-height: 1.2;
-      margin-bottom: 24px;
-      color: #111827;
-    }
-
-    .hero-highlight {
-      color: var(--primary-red);
-    }
-
-    .hero-desc {
-      font-size: 1.1rem;
-      color: var(--gray-mid);
-      margin-bottom: 32px;
-      max-width: 500px;
-    }
-
-    .hero-stats {
-      display: flex;
-      gap: 32px;
-      margin-top: 40px;
-    }
-
-    .stat-item h3 {
-      font-size: 1.8rem;
-      color: var(--primary-red);
-    }
-
-    .hero-visual {
-      flex: 1;
-      background: linear-gradient(145deg, #fef2f2 0%, #ffffff 100%);
-      border-radius: 48px;
-      padding: 20px;
-      text-align: center;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .hero-icon-grid {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
-    }
-
-    .icon-card {
-      background: white;
-      padding: 24px 20px;
-      border-radius: 36px;
-      box-shadow: var(--shadow-md);
-      width: 130px;
-      transition: transform 0.2s;
-    }
-
-    .icon-card i {
-      font-size: 2.8rem;
-      color: var(--primary-red);
-      margin-bottom: 12px;
-    }
-
-    /* section umum */
-    section {
-      padding: 80px 0;
-    }
-
-    .section-title-center {
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto 1rem auto;
-    }
-
-    /* services grid */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 32px;
-      margin-top: 20px;
-    }
-
-    .service-card {
-      background: white;
-      border-radius: 32px;
-      padding: 32px 28px;
-      transition: all 0.3s ease;
-      border: 1px solid var(--border-light);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .service-card:hover {
-      transform: translateY(-6px);
-      border-color: var(--primary-red);
-      box-shadow: 0 25px 30px -12px rgba(199, 42, 47, 0.12);
-    }
-
-    .service-icon {
-      background: var(--red-soft);
-      width: 64px;
-      height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 24px;
-      margin-bottom: 24px;
-    }
-
-    .service-icon i {
-      font-size: 2rem;
-      color: var(--primary-red);
-    }
-
-    .service-card h3 {
-      font-size: 1.5rem;
-      margin-bottom: 12px;
-    }
-
-    .service-card p {
-      color: var(--gray-mid);
-      margin-bottom: 20px;
-    }
-
-    .service-link {
-      color: var(--primary-red);
-      font-weight: 600;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    /* about section */
-    .about-grid {
-      display: flex;
-      gap: 56px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .about-content {
-      flex: 1;
-    }
-
-    .about-stats {
-      display: flex;
-      gap: 32px;
-      margin-top: 32px;
-    }
-
-    .about-feature {
-      display: flex;
-      gap: 12px;
-      margin-top: 20px;
-      align-items: center;
-    }
-
-    .about-feature i {
-      color: var(--primary-red);
-      font-size: 1.4rem;
-    }
-
-    .about-image {
-      flex: 1;
-      background: var(--red-soft);
-      border-radius: 48px;
-      padding: 48px 24px;
-      text-align: center;
-    }
-
-    .about-image i {
-      font-size: 8rem;
-      color: var(--primary-red);
-      opacity: 0.7;
-    }
-
-    /* project highlight / portfolio minimal */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-    }
-
-    .project-card {
-      border-radius: 28px;
-      overflow: hidden;
-      background: white;
-      border: 1px solid var(--border-light);
-      transition: all 0.2s;
-    }
-
-    .project-img {
-      height: 200px;
-      background: #f3f4f6;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--primary-red);
-      font-size: 3rem;
-    }
-
-    .project-info {
-      padding: 24px;
-    }
-
-    .project-info h4 {
-      font-size: 1.3rem;
-      margin-bottom: 8px;
-    }
-
-    /* contact & CTA */
-    .cta-section {
-      background: var(--gray-light);
-      border-radius: 48px;
-      padding: 64px 48px;
-      text-align: center;
-    }
-
-    .contact-flex {
-      display: flex;
-      gap: 48px;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      margin-top: 40px;
-    }
-
-    .contact-info {
-      flex: 1;
-    }
-
-    .contact-detail {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin: 24px 0;
-    }
-
-    .contact-detail i {
-      width: 44px;
-      height: 44px;
-      background: var(--red-soft);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 30px;
-      color: var(--primary-red);
-      font-size: 1.2rem;
-    }
-
-    /* footer */
-    footer {
-      background: #0f1722;
-      color: #e2e8f0;
-      padding: 48px 0 24px;
-      margin-top: 40px;
-    }
-
-    .footer-grid {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 40px;
-      margin-bottom: 48px;
-    }
-
-    .footer-logo p {
-      color: var(--primary-red);
-      font-weight: 700;
-      font-size: 1.6rem;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 64px;
-      flex-wrap: wrap;
-    }
-
-    .footer-col a {
-      color: #cbd5e1;
-      text-decoration: none;
-      display: block;
-      margin: 8px 0;
-      transition: color 0.2s;
-    }
-
-    .footer-col a:hover {
-      color: var(--primary-red);
-    }
-
-    .copyright {
-      text-align: center;
-      border-top: 1px solid #1e2a3a;
-      padding-top: 24px;
-      font-size: 0.85rem;
-    }
-
-    /* responsive */
-    @media (max-width: 768px) {
-      .container {
-        padding: 0 24px;
-      }
-      .navbar {
-        flex-direction: column;
-        gap: 20px;
-      }
-      .nav-links {
-        gap: 24px;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      .hero-content h1 {
-        font-size: 2.4rem;
-      }
-      .hero-grid {
-        flex-direction: column;
-      }
-      section {
-        padding: 60px 0;
-      }
-      .cta-section {
-        padding: 40px 24px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CV Archimedes Engineering Consultant - Konsultan teknik profesional di Maluku Utara. Layanan arsitektur, rekayasa teknik, dan pengawasan konstruksi.">
+    <title>CV Archimedes Engineering Consultant | Precision Engineering Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+        
+        :root {
+            --brand-red: #DC2626;
+            --brand-dark: #0A0C10;
+            --brand-gray: #1E1F24;
+            --brand-accent: #FEE2E2;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #FFFFFF;
+        }
+
+        h1, h2, h3, h4, .font-heading {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+        }
+
+        .bg-brand-red { background-color: var(--brand-red); }
+        .text-brand-red { color: var(--brand-red); }
+        .border-brand-red { border-color: var(--brand-red); }
+        
+        /* Enhanced Hero Gradient */
+        .hero-gradient-modern {
+            background: linear-gradient(105deg, rgba(10,12,16,0.92) 0%, rgba(10,12,16,0.75) 100%), url('https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=2070');
+            background-size: cover;
+            background-position: center 30%;
+            background-attachment: fixed;
+        }
+
+        /* Modern Glassmorphism Nav */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 1px 0 rgba(0,0,0,0.05), 0 10px 30px -10px rgba(0,0,0,0.05);
+        }
+
+        /* Advanced Card Animations */
+        .service-card-modern {
+            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            background: white;
+            border-radius: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .service-card-modern:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 30px 40px -20px rgba(220, 38, 38, 0.25);
+        }
+
+        .service-card-modern::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 2rem;
+            background: linear-gradient(135deg, rgba(220,38,38,0.05) 0%, rgba(220,38,38,0) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+
+        .service-card-modern:hover::after {
+            opacity: 1;
+        }
+
+        .btn-primary-modern {
+            background: var(--brand-red);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.25);
+        }
+
+        .btn-primary-modern:hover {
+            background: #B91C1C;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(220, 38, 38, 0.4);
+        }
+
+        .btn-outline-modern {
+            background: transparent;
+            border: 1.5px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(4px);
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-modern:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: white;
+            transform: translateY(-2px);
+        }
+
+        .stat-card {
+            background: rgba(255,255,255,0.03);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            background: rgba(220,38,38,0.1);
+            border-color: rgba(220,38,38,0.4);
+        }
+
+        /* Smooth reveal on scroll */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+
+        .reveal-on-scroll.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .logo-img-enhanced {
+            height: 52px;
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--brand-red);
+            border-radius: 10px;
+        }
+    </style>
 </head>
 <body>
 
-<header>
-  <div class="container">
-    <div class="navbar">
-      <div class="logo-area">
-        <span class="logo-main">ARCHIMEDES</span>
-        <span class="logo-sub">ENGINEERING CONSULTANT</span>
-      </div>
-      <ul class="nav-links">
-        <li><a href="#home">Beranda</a></li>
-        <li><a href="#services">Layanan</a></li>
-        <li><a href="#about">Tentang</a></li>
-        <li><a href="#projects">Proyek</a></li>
-        <li><a href="#contact">Kontak</a></li>
-      </ul>
-    </div>
-  </div>
-</header>
+    <!-- Navigation Enhanced -->
+    <nav class="fixed top-0 w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 md:px-8 flex justify-between items-center h-20">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="relative">
+                    <img src="logo_perusahaan.jpeg" alt="CV Archimedes Engineering Consultant" class="logo-img-enhanced" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                    <div class="hidden w-11 h-11 bg-gradient-to-br from-brand-red to-red-700 rounded-xl items-center justify-center text-white font-black text-xl shadow-lg">A</div>
+                </div>
+                <div class="leading-tight">
+                    <span class="block text-xl font-black tracking-tight text-slate-900">ARCHIMEDES</span>
+                    <span class="block text-[9px] font-bold text-brand-red uppercase tracking-[0.2em]">Engineering Consultant</span>
+                </div>
+            </a>
 
-<main>
-  <!-- Hero Section -->
-  <section id="home">
-    <div class="container hero">
-      <div class="hero-grid">
-        <div class="hero-content">
-          <span class="hero-badge"><i class="fas fa-crown" style="margin-right: 6px;"></i> Konsultan Terintegrasi</span>
-          <h1>Arsitektur · Konstruksi · <span class="hero-highlight">Teknologi Informasi</span></h1>
-          <p class="hero-desc">Mewujudkan visi modern melalui pendekatan multidisiplin: desain ikonik, konstruksi presisi, dan transformasi digital cerdas.</p>
-          <div>
-            <a href="#contact" class="btn-primary">Konsultasi Gratis <i class="fas fa-arrow-right"></i></a>
-            <a href="#services" class="btn-outline" style="margin-left: 16px;">Jelajahi Layanan</a>
-          </div>
-          <div class="hero-stats">
-            <div class="stat-item"><h3>150+</h3><p>Proyek Selesai</p></div>
-            <div class="stat-item"><h3>45+</h3><p>Mitra Industri</p></div>
-            <div class="stat-item"><h3>12th</h3><p>Pengalaman</p></div>
-          </div>
-        </div>
-        <div class="hero-visual">
-          <div class="hero-icon-grid">
-            <div class="icon-card"><i class="fas fa-drafting-compass"></i><p style="font-weight:500; margin-top:8px;">Arsitektur</p></div>
-            <div class="icon-card"><i class="fas fa-hard-hat"></i><p style="font-weight:500; margin-top:8px;">Konstruksi</p></div>
-            <div class="icon-card"><i class="fas fa-microchip"></i><p style="font-weight:500; margin-top:8px;">IT Konsultan</p></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+            <div class="hidden lg:flex items-center gap-8">
+                <a href="#beranda" class="text-sm font-semibold text-slate-700 hover:text-brand-red transition-all duration-200 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-0.5 after:bg-brand-red after:transition-all hover:after:w-full">Beranda</a>
+                <a href="#tentang" class="text-sm font-semibold text-slate-700 hover:text-brand-red transition-all duration-200 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-0.5 after:bg-brand-red after:transition-all hover:after:w-full">Tentang Kami</a>
+                <a href="#layanan" class="text-sm font-semibold text-slate-700 hover:text-brand-red transition-all duration-200 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-0.5 after:bg-brand-red after:transition-all hover:after:w-full">Layanan</a>
+                <a href="#proyek" class="text-sm font-semibold text-slate-700 hover:text-brand-red transition-all duration-200 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-0.5 after:bg-brand-red after:transition-all hover:after:w-full">Portofolio</a>
+                <a href="#kontak" class="text-sm font-semibold text-slate-700 hover:text-brand-red transition-all duration-200 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-0.5 after:bg-brand-red after:transition-all hover:after:w-full">Kontak</a>
+                <a href="https://wa.me/6281247982593" target="_blank" class="btn-primary-modern text-white px-6 py-2.5 rounded-full text-sm font-bold shadow-md flex items-center gap-2"><i class="fab fa-whatsapp"></i> Konsultasi Gratis</a>
+            </div>
 
-  <!-- Services Section (Arsitektur, Konstruksi, IT) -->
-  <section id="services" style="background-color: var(--gray-light);">
-    <div class="container">
-      <div class="section-title-center">
-        <h2>Layanan Unggulan</h2>
-        <p class="section-subhead">Solusi menyeluruh dari konsep hingga implementasi teknologi mutakhir untuk bangunan cerdas dan infrastruktur masa depan.</p>
-      </div>
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon"><i class="fas fa-pencil-ruler"></i></div>
-          <h3>Arsitektur & Desain</h3>
-          <p>Desain inovatif, ramah lingkungan, dan berorientasi pada estetika fungsional. Konsultasi tata ruang, BIM, dan perencanaan kota.</p>
-          <a href="#" class="service-link">Pelajari lebih <i class="fas fa-chevron-right"></i></a>
+            <button class="lg:hidden text-2xl text-slate-800"><i class="fas fa-bars"></i></button>
         </div>
-        <div class="service-card">
-          <div class="service-icon"><i class="fas fa-building"></i></div>
-          <h3>Manajemen Konstruksi</h3>
-          <p>Pengawasan proyek, engineering struktur, quality control, dan efisiensi biaya. Menghadirkan ketepatan waktu dan standar keselamatan tinggi.</p>
-          <a href="#" class="service-link">Pelajari lebih <i class="fas fa-chevron-right"></i></a>
-        </div>
-        <div class="service-card">
-          <div class="service-icon"><i class="fas fa-cloud-upload-alt"></i></div>
-          <h3>Teknologi Informasi</h3>
-          <p>Implementasi sistem manajemen gedung pintar (BMS), IoT untuk konstruksi, serta digitalisasi proses engineering dan ERP.</p>
-          <a href="#" class="service-link">Pelajari lebih <i class="fas fa-chevron-right"></i></a>
-        </div>
-      </div>
-    </div>
-  </section>
+    </nav>
 
-  <!-- About Section -->
-  <section id="about">
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-content">
-          <span class="hero-badge" style="background: var(--red-soft);">Tentang Kami</span>
-          <h2>Mengintegrasikan Keahlian Teknik & Teknologi</h2>
-          <p style="color: var(--gray-mid); margin: 20px 0;">Archimedes Engineering Consultant didirikan dengan filosofi kolaborasi antara presisi teknik dan inovasi digital. Kami menggabungkan kekuatan arsitektur visioner, konstruksi terukur, serta solusi IT agar setiap proyek mencapai keberlanjutan jangka panjang.</p>
-          <div class="about-feature">
-            <i class="fas fa-check-circle"></i> <span><strong>Pendekatan Multidisiplin</strong> — tim arsitek, insinyur, dan developer teknologi.</span>
-          </div>
-          <div class="about-feature">
-            <i class="fas fa-check-circle"></i> <span><strong>Teknologi BIM & AI</strong> — efisiensi biaya dan waktu hingga 30%.</span>
-          </div>
-          <div class="about-stats">
-            <div><strong style="font-size: 1.8rem; color:var(--primary-red);">98%</strong><br>Klien puas</div>
-            <div><strong style="font-size: 1.8rem; color:var(--primary-red);">45+</strong><br>Proyek IT terintegrasi</div>
-          </div>
+    <!-- Hero Section Modernized -->
+    <section id="beranda" class="hero-gradient-modern min-h-screen flex items-center pt-20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-red-900/20 via-transparent to-transparent"></div>
+        <div class="max-w-7xl mx-auto px-6 md:px-8 w-full relative z-10">
+            <div class="max-w-4xl">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white text-xs font-bold uppercase tracking-wider mb-6">
+                    <i class="fas fa-hard-hat text-brand-red text-sm"></i>
+                    <span>Konsultan Teknik Bersertifikat</span>
+                </div>
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[1.1] mb-6 tracking-tight">
+                    Rekayasa <span class="text-brand-red">Presisi</span><br>Infrastruktur Tangguh
+                </h1>
+                <p class="text-lg md:text-xl text-slate-200 mb-10 leading-relaxed max-w-2xl">
+                    Mitra terpercaya dalam perencanaan, pengawasan, dan konsultasi konstruksi di Maluku Utara. Solusi teknik yang mengutamakan keselamatan, efisiensi, dan keberlanjutan.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-5">
+                    <a href="#layanan" class="btn-primary-modern text-white px-8 py-4 rounded-xl font-bold text-center shadow-xl flex items-center justify-center gap-2 group">
+                        Jelajahi Layanan <i class="fas fa-arrow-right group-hover:translate-x-1 transition"></i>
+                    </a>
+                    <a href="#tentang" class="btn-outline-modern text-white border border-white/30 px-8 py-4 rounded-xl font-bold text-center backdrop-blur-sm hover:bg-white/10 transition">
+                        Profil Perusahaan
+                    </a>
+                </div>
+            </div>
         </div>
-        <div class="about-image">
-          <i class="fas fa-chalkboard-user"></i>
-          <p style="margin-top: 24px; font-weight:500;">Sinergi Arsitektur, Konstruksi, Digital</p>
+        <!-- floating badge -->
+        <div class="absolute bottom-12 right-8 hidden lg:block animate-bounce">
+            <div class="bg-black/40 backdrop-blur-md rounded-full px-4 py-2 text-white text-xs font-mono"><i class="fas fa-map-marker-alt text-brand-red mr-1"></i> Taliabu, Maluku Utara</div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Portfolio / Proyek Unggulan -->
-  <section id="projects" style="background-color: var(--gray-light);">
-    <div class="container">
-      <div class="section-title-center">
-        <h2>Proyek Terkini</h2>
-        <p class="section-subhead">Implementasi nyata layanan terintegrasi: dari bangunan ikonik hingga platform manajemen infrastruktur.</p>
-      </div>
-      <div class="projects-grid">
-        <div class="project-card">
-          <div class="project-img"><i class="fas fa-city fa-3x"></i></div>
-          <div class="project-info">
-            <h4>Menara Sentral Smart Office</h4>
-            <p style="color: var(--gray-mid);">Konsep arsitektur modern + BMS berbasis IoT. Selesai 2024.</p>
-          </div>
+    <!-- About Section Modern -->
+    <section id="tentang" class="py-28 bg-white relative">
+        <div class="max-w-7xl mx-auto px-6 md:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="relative order-2 lg:order-1 reveal-on-scroll">
+                    <div class="absolute -top-4 -left-4 w-24 h-24 bg-brand-red/10 rounded-3xl -z-0"></div>
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=2070" alt="Team Engineering" class="w-full h-full object-cover aspect-[4/3]">
+                    </div>
+                    <div class="absolute -bottom-8 -right-8 bg-white p-5 rounded-2xl shadow-xl border border-slate-100 hidden md:block">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-brand-red rounded-full flex items-center justify-center text-white text-xl"><i class="fas fa-certificate"></i></div>
+                            <div><p class="font-black text-slate-800 text-lg">Terakreditasi</p><p class="text-xs text-slate-500">NIB: 1203260145359</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal-on-scroll">
+                    <div class="inline-block px-4 py-1.5 bg-brand-red/10 rounded-full text-brand-red text-xs font-bold uppercase tracking-wider mb-5"><i class="fas fa-hard-hat mr-1"></i> Tentang Perusahaan</div>
+                    <h2 class="text-4xl md:text-5xl font-black text-slate-900 mb-6 leading-tight">Keahlian Teknik <span class="text-brand-red">Terintegrasi</span> untuk Masa Depan</h2>
+                    <p class="text-slate-600 mb-6 leading-relaxed text-base">
+                        CV Archimedes Engineering Consultant hadir sebagai entitas konsultan teknik yang berfokus pada kualitas, presisi, dan inovasi. Berbasis di Kabupaten Pulau Taliabu, kami melayani kebutuhan konstruksi dan infrastruktur bagi sektor publik dan swasta.
+                    </p>
+                    <p class="text-slate-600 mb-8 leading-relaxed">
+                        Dengan tenaga ahli berpengalaman dan legalitas resmi terdaftar di OSS RBA, kami memastikan setiap proyek memenuhi standar teknis tertinggi — dari tahap perencanaan hingga pengawasan konstruksi.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6 border-t border-slate-100 pt-8">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-brand-red/10 text-brand-red flex items-center justify-center"><i class="fas fa-chart-line"></i></div>
+                            <div><p class="font-black text-slate-800 text-lg">100%</p><p class="text-xs text-slate-500">Komitmen Integritas</p></div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-brand-red/10 text-brand-red flex items-center justify-center"><i class="fas fa-users"></i></div>
+                            <div><p class="font-black text-slate-800 text-lg">Profesional</p><p class="text-xs text-slate-500">Tenaga Ahli Bersertifikat</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="project-card">
-          <div class="project-img"><i class="fas fa-database fa-3x"></i></div>
-          <div class="project-info">
-            <h4>Digital Infrastructure Hub</h4>
-            <p>Platform monitoring konstruksi & predictive maintenance.</p>
-          </div>
-        </div>
-        <div class="project-card">
-          <div class="project-img"><i class="fas fa-school fa-3x"></i></div>
-          <div class="project-info">
-            <h4>Eco-Education Campus</h4>
-            <p>Desain berkelanjutan + sistem manajemen energi cerdas.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact & CTA -->
-  <section id="contact">
-    <div class="container">
-      <div class="cta-section">
-        <h2 style="font-size: 2rem;">Mulai Proyek Anda Bersama Ahli</h2>
-        <p style="max-width: 550px; margin: 16px auto; color: #4b5563;">Dapatkan konsultasi awal gratis dan feasibility study untuk visi konstruksi dan teknologi Anda.</p>
-        <a href="#" class="btn-primary" style="margin-top: 8px;"><i class="fas fa-calendar-alt"></i> Jadwalkan Konsultasi</a>
-        
-        <div class="contact-flex">
-          <div class="contact-info">
-            <div class="contact-detail"><i class="fas fa-map-marker-alt"></i> <span>DESA BOBONG, KECAMATAN TALIABU BARAT, KABUPATEN	PULAU TALIABU, Desa/Kelurahan	Bobong, Kec. Taliabu Barat,	Kab. Pulau Taliabu,	Provinsi Maluku Utara, Kode	Pos: 97794</span></div>
-            <div class="contact-detail"><i class="fas fa-phone-alt"></i> <span>+62 21 1234 5678</span></div>
-            <div class="contact-detail"><i class="fas fa-envelope"></i> <span>hello@archimedes.co.id</span></div>
-          </div>
-          <div class="contact-info">
-            <div class="contact-detail"><i class="fab fa-whatsapp"></i> <span>+62 821 4804 1610</span></div>
-            <div class="contact-detail"><i class="fab fa-linkedin"></i> <span>Archimedes Engineering Consultant</span></div>
-            <div class="contact-detail"><i class="fas fa-clock"></i> <span>Senin - Jumat: 08.00 - 18.00</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
+    <!-- Services Section Elevated -->
+    <section id="layanan" class="py-28 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-6 md:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal-on-scroll">
+                <div class="inline-block px-4 py-1.5 bg-brand-red/10 rounded-full text-brand-red text-xs font-bold uppercase tracking-wider mb-4"><i class="fas fa-cogs mr-1"></i> Layanan Unggulan</div>
+                <h2 class="text-4xl md:text-5xl font-black text-slate-900 mb-5 tracking-tight">Solusi Teknik <span class="text-brand-red">Komprehensif</span></h2>
+                <p class="text-slate-500">Kami menyediakan layanan konsultasi yang disesuaikan dengan kebutuhan spesifik proyek Anda — dari desain hingga pengawasan teknis.</p>
+            </div>
 
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-logo">
-        <p>ARCHIMEDES</p>
-        <span style="font-size: 0.8rem; opacity:0.7;">Engineering & IT Consultant</span>
-      </div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <h4 style="margin-bottom: 12px;">Navigasi</h4>
-          <a href="#home">Beranda</a>
-          <a href="#services">Layanan</a>
-          <a href="#about">Tentang</a>
-          <a href="#projects">Proyek</a>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="service-card-modern p-8 border border-slate-100 shadow-sm hover:shadow-xl reveal-on-scroll">
+                    <div class="w-16 h-16 bg-gradient-to-br from-red-50 to-red-100 text-brand-red rounded-2xl flex items-center justify-center text-3xl mb-7">
+                        <i class="fas fa-drafting-compass"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-800 mb-3">Jasa Arsitektur</h3>
+                    <p class="text-slate-500 leading-relaxed text-sm mb-5">Desain bangunan modern yang mengutamakan estetika, fungsionalitas, dan kearifan lokal.</p>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-red text-xs"></i> Desain Bangunan & Tata Ruang</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-red text-xs"></i> Gambar Teknis & 3D Visualisasi</li>
+                    </ul>
+                </div>
+                <!-- Card 2 -->
+                <div class="service-card-modern p-8 border border-slate-100 shadow-sm hover:shadow-xl reveal-on-scroll">
+                    <div class="w-16 h-16 bg-gradient-to-br from-red-50 to-red-100 text-brand-red rounded-2xl flex items-center justify-center text-3xl mb-7">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-800 mb-3">Rekayasa Struktur</h3>
+                    <p class="text-slate-500 leading-relaxed text-sm mb-5">Analisis dan perhitungan struktur bangunan untuk memastikan keamanan dan ketahanan jangka panjang.</p>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-red text-xs"></i> Analisis Struktur Beton & Baja</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-red text-xs"></i> Konsultasi Rekayasa Gempa</li>
+                    </ul>
+                </div>
+                <!-- Card 3 -->
+                <div class="service-card-modern p-8 border border-slate-100 shadow-sm hover:shadow-xl reveal-on-scroll">
+                    <div class="w-16 h-16 bg-gradient-to-br from-red-50 to-red-100 text-brand-red rounded-2xl flex items-center justify-center text-3xl mb-7">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-800 mb-3">Pengawasan Konstruksi</h3>
+                    <p class="text-slate-500 leading-relaxed text-sm mb-5">Monitoring dan supervisi lapangan untuk menjamin kualitas pekerjaan sesuai spesifikasi teknis.</p>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-red text-xs"></i> Supervisi Harian & Laporan Progress</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-red text-xs"></i> Manajemen Mutu & Keselamatan Proyek</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="footer-col">
-          <h4 style="margin-bottom: 12px;">Layanan</h4>
-          <a href="#">Arsitektur</a>
-          <a href="#">Konstruksi</a>
-          <a href="#">IT Consulting</a>
-          <a href="#">Smart Building</a>
-        </div>
-        <div class="footer-col">
-          <h4 style="margin-bottom: 12px;">Legal</h4>
-          <a href="#">Kebijakan Privasi</a>
-          <a href="#">Syarat & Ketentuan</a>
-        </div>
-      </div>
-    </div>
-    <div class="copyright">
-      <p>© 2025 Archimedes Engineering Consultant — Sinergi Arsitektur, Konstruksi & Teknologi Informasi. Seluruh hak dilindungi.</p>
-    </div>
-  </div>
-</footer>
+    </section>
 
-<!-- simple scroll & red theme accent -->
-<script>
-  // smooth scroll for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      const targetId = this.getAttribute('href');
-      if (targetId === "#" || targetId === "") return;
-      const targetElement = document.querySelector(targetId);
-      if (targetElement) {
-        e.preventDefault();
-        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
-</script>
+    <!-- Stats / Milestone Section Modern -->
+    <section class="py-16 bg-brand-red relative overflow-hidden">
+        <div class="absolute inset-0 bg-black/20"></div>
+        <div class="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="stat-card p-6 rounded-2xl reveal-on-scroll"><div class="text-4xl md:text-5xl font-black text-white">5+</div><div class="text-white/80 text-sm font-medium uppercase tracking-wide">Tahun Pengalaman</div></div>
+                <div class="stat-card p-6 rounded-2xl reveal-on-scroll"><div class="text-4xl md:text-5xl font-black text-white">50+</div><div class="text-white/80 text-sm font-medium uppercase tracking-wide">Proyek Selesai</div></div>
+                <div class="stat-card p-6 rounded-2xl reveal-on-scroll"><div class="text-4xl md:text-5xl font-black text-white">100%</div><div class="text-white/80 text-sm font-medium uppercase tracking-wide">Kepuasan Klien</div></div>
+                <div class="stat-card p-6 rounded-2xl reveal-on-scroll"><div class="text-4xl md:text-5xl font-black text-white">24/7</div><div class="text-white/80 text-sm font-medium uppercase tracking-wide">Dukungan Teknis</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio / Project Showcase -->
+    <section id="proyek" class="py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-6 md:px-8">
+            <div class="text-center mb-16 reveal-on-scroll">
+                <div class="inline-block px-4 py-1.5 bg-brand-red/10 rounded-full text-brand-red text-xs font-bold uppercase tracking-wider mb-4"><i class="fas fa-images mr-1"></i> Portofolio Unggulan</div>
+                <h2 class="text-4xl md:text-5xl font-black text-slate-900">Proyek <span class="text-brand-red">Terkini</span></h2>
+                <p class="text-slate-500 mt-4">Implementasi solusi rekayasa yang telah dipercaya oleh berbagai mitra.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="group rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all reveal-on-scroll"><img src="https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=800" class="w-full h-64 object-cover group-hover:scale-105 transition duration-700"><div class="p-5 bg-white"><h4 class="font-bold text-slate-800">Perencanaan Gedung Serbaguna</h4><p class="text-xs text-brand-red mt-1">Arsitektur & Struktur</p></div></div>
+                <div class="group rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all reveal-on-scroll"><img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=800" class="w-full h-64 object-cover group-hover:scale-105 transition duration-700"><div class="p-5 bg-white"><h4 class="font-bold text-slate-800">Pengawasan Infrastruktur Jalan</h4><p class="text-xs text-brand-red mt-1">Manajemen Proyek</p></div></div>
+                <div class="group rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all reveal-on-scroll"><img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&q=80&w=800" class="w-full h-64 object-cover group-hover:scale-105 transition duration-700"><div class="p-5 bg-white"><h4 class="font-bold text-slate-800">Konsultasi Teknis Jembatan</h4><p class="text-xs text-brand-red mt-1">Rekayasa Struktur</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Contact & Info -->
+    <section id="kontak" class="py-28 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-6 md:px-8">
+            <div class="grid lg:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-3xl shadow-sm text-center hover:shadow-md transition reveal-on-scroll"><div class="w-16 h-16 bg-brand-red/10 rounded-2xl flex items-center justify-center text-brand-red text-2xl mx-auto mb-5"><i class="fas fa-location-dot"></i></div><h4 class="font-bold text-xl mb-2">Kantor Pusat</h4><p class="text-slate-500">Desa Bobong, Kec. Taliabu Barat, Kabupaten Pulau Taliabu, Maluku Utara</p></div>
+                <div class="bg-white p-8 rounded-3xl shadow-sm text-center hover:shadow-md transition reveal-on-scroll"><div class="w-16 h-16 bg-brand-red/10 rounded-2xl flex items-center justify-center text-brand-red text-2xl mx-auto mb-5"><i class="fas fa-envelope"></i></div><h4 class="font-bold text-xl mb-2">Email Resmi</h4><a href="mailto:consultantarchimedesengineering@gmail.com" class="text-brand-red font-medium">consultantarchimedesengineering@gmail.com</a></div>
+                <div class="bg-white p-8 rounded-3xl shadow-sm text-center hover:shadow-md transition reveal-on-scroll"><div class="w-16 h-16 bg-brand-red/10 rounded-2xl flex items-center justify-center text-brand-red text-2xl mx-auto mb-5"><i class="fas fa-clock"></i></div><h4 class="font-bold text-xl mb-2">Jam Layanan</h4><p class="text-slate-500">Senin - Jumat: 08.00 - 17.00<br>Sabtu: 08.00 - 13.00</p></div>
+            </div>
+            <div class="mt-12 text-center"><a href="https://wa.me/6281247982593" target="_blank" class="inline-flex items-center gap-3 bg-brand-red text-white px-8 py-4 rounded-2xl font-bold shadow-xl hover:bg-red-700 transition-all hover:scale-105"><i class="fab fa-whatsapp text-2xl"></i> Hubungi Tim Kami Sekarang</a></div>
+        </div>
+    </section>
+
+    <!-- Footer Modern -->
+    <footer class="bg-slate-900 text-white pt-20 pb-8">
+        <div class="max-w-7xl mx-auto px-6 md:px-8">
+            <div class="grid md:grid-cols-4 gap-12 pb-16 border-b border-white/10">
+                <div><div class="flex items-center gap-3 mb-6"><img src="logo_perusahaan.jpeg" class="h-12 w-auto" onerror="this.style.display='none'"><div><div class="font-black text-xl">ARCHIMEDES</div><div class="text-[10px] text-brand-red tracking-widest">Engineering Consultant</div></div></div><p class="text-slate-400 text-sm">Presisi, Integritas, dan Solusi Teknik Terpercaya.</p></div>
+                <div><h4 class="font-bold text-brand-red text-sm uppercase tracking-wider mb-5">Navigasi</h4><ul class="space-y-2 text-sm text-slate-400"><li><a href="#beranda" class="hover:text-white transition">Beranda</a></li><li><a href="#tentang" class="hover:text-white transition">Tentang</a></li><li><a href="#layanan" class="hover:text-white transition">Layanan</a></li><li><a href="#kontak" class="hover:text-white transition">Kontak</a></li></ul></div>
+                <div><h4 class="font-bold text-brand-red text-sm uppercase tracking-wider mb-5">Legalitas</h4><ul class="space-y-2 text-sm text-slate-400"><li>NIB: 1203260145359</li><li>Skala: Usaha Mikro</li><li>PMDN / Aktif</li><li>OSS RBA Terdaftar</li></ul></div>
+                <div><h4 class="font-bold text-brand-red text-sm uppercase tracking-wider mb-5">Kontak Cepat</h4><p class="text-sm text-slate-400"><i class="fab fa-whatsapp mr-2 text-brand-red"></i> +62 812-4798-2593</p><p class="text-sm text-slate-400 mt-2"><i class="far fa-envelope mr-2 text-brand-red"></i> consultantarchimedesengineering@gmail.com</p></div>
+            </div>
+            <div class="flex flex-col md:flex-row justify-between items-center text-xs text-slate-500 pt-8 gap-4"><p>&copy; 2026 CV Archimedes Engineering Consultant. All Rights Reserved.</p><div class="flex gap-6"><a href="#" class="hover:text-white">Kebijakan Privasi</a><a href="#" class="hover:text-white">Syarat & Ketentuan</a></div></div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-lg');
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                navbar.classList.remove('shadow-lg');
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            }
+        });
+
+        // Reveal on scroll
+        const revealElements = document.querySelectorAll('.reveal-on-scroll');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Mobile menu toggle (simple)
+        const mobileBtn = document.querySelector('.lg\\:hidden');
+        if(mobileBtn) {
+            mobileBtn.addEventListener('click', () => { alert('Menu navigasi mobile dapat diimplementasikan lebih lanjut — silakan hubungi tim untuk responsif penuh.'); });
+        }
+    </script>
 </body>
 </html>
